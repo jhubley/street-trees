@@ -46,10 +46,44 @@ body {
 	z-index: 1000;
 }
 
+.d3-tip {
+  line-height: 1;
+  font-weight: normal;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size:13px;
+  padding: 8px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 3px;
+	position:relative;
+	z-index:101;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.8);
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+}
 </style>
 <body>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="http://d3js.org/d3.geo.tile.v0.min.js"></script>
+<script src="d3.tip.js"></script>
+
 <script>
 
 var width = Math.max(960, window.innerWidth),
@@ -62,12 +96,12 @@ var tile = d3.geo.tile()
     .size([width, height]);
 
 var projection = d3.geo.mercator()
-.scale((1 << 20) / 2 / Math.PI)
+.scale((1 << 21) / 2 / Math.PI)
 .translate([-width / 2, -height / 2]); // just temporary
 
 var zoom = d3.behavior.zoom()
     .scale(projection.scale() * 2 * Math.PI)
-    .scaleExtent([1 << 9, 1 << 25])
+    .scaleExtent([1 << 20, 1 << 25])
     .translate(projection([-73.968114, 40.674673]).map(function(x) { return -x; }))
     .on("zoom", zoomed);
 
@@ -89,48 +123,138 @@ var layer = map.append("div")
 
 var info = map.append("div")
     .attr("class", "info");
-
-
+		
+		var tip = d3.tip()
+		  .attr('class', 'd3-tip')
+		  .offset([-10, 0])
+		  .html(function(d) { 
+				if ( d.SPECIES == "ACPL" ) { return "Norway Maple"
+					} else if ( d.SPECIES == "ACRU" ) { return "Red Maple"
+					} else if ( d.SPECIES == "ACSA1" ) { return "Silver Maple"
+					} else if ( d.SPECIES == "FRPE" ) { return "Green Ash"
+					} else if ( d.SPECIES == "GLTR" ) { return "Honeylocust"
+					} else if ( d.SPECIES == "TICO" ) { return "Littleleaf Linden"
+					} else if ( d.SPECIES == "PYCA" ) { return "Callery Pear"
+					} else if ( d.SPECIES == "QUPA" ) { return "Pin Oak"
+					} else if ( d.SPECIES == "PLAC" ) { return "London Planetree"
+					} else if ( d.SPECIES == "GIBI" ) { return "Ginkgo"
+					} else if ( d.SPECIES == "SYRE" ) { return "Japanese Tree Lilac"
+					} else if ( d.SPECIES == "COFL" ) { return "Flowering Dogwood"
+					} else if ( d.SPECIES == "CEJA" ) { return "Katsura Tree"
+					} else if ( d.SPECIES == "AEHI" ) { return "Horsechestnut"
+					} else if ( d.SPECIES == "ACPLCK" ) { return "Norway Maple Crimson King"
+					} else if ( d.SPECIES == "ACSA2" ) { return "Sugar Maple"
+					} else if ( d.SPECIES == "ACCA" ) { return "Hedge Maple"
+					} else if ( d.SPECIES == "ACGI" ) { return "Amur Maple"
+					} else if ( d.SPECIES == "ACPA" ) { return "Japanese Maple"
+					} else if ( d.SPECIES == "ACPS" ) { return "Sycamore Maple"
+					} else if ( d.SPECIES == "STJA2" ) { return "Japanese Pagoda Tree"
+					} else if ( d.SPECIES == "ROPS" ) { return "Black Locust"
+					} else if ( d.SPECIES == "ULAM" ) { return "American Elm"
+					} else if ( d.SPECIES == "ULPA" ) { return "Chinese Elm"
+					} else if ( d.SPECIES == "ZESE" ) { return "Zelkova"
+					} else if ( d.SPECIES == "LIST" ) { return "Sweetgum"
+					} else if ( d.SPECIES == "GYDI" ) { return "Kentucky Coffeetree"
+					} else if ( d.SPECIES == "AIAL" ) { return "Tree of Heaven"
+					} else if ( d.SPECIES == "KOPA" ) { return "Goldenrain Tree"
+					} else if ( d.SPECIES == "CECA" ) { return "Eastern Redbud"
+					} else if ( d.SPECIES == "LITU" ) { return "Tulip Tree"
+					} else if ( d.SPECIES == "TIAM" ) { return "American Linden"
+					} else if ( d.SPECIES == "TITO" ) { return "Silver Linden"
+					} else if ( d.SPECIES == "CR" ) { return "Hawthorn"
+					} else if ( d.SPECIES == "MA2" ) { return "Crabapple"
+					} else if ( d.SPECIES == "PR" ) { return "Flowering Cherry"
+					} else if ( d.SPECIES == "BE" ) { return "Birch"
+					} else if ( d.SPECIES == "PRVISH" ) { return "Schubert Cherry"
+					} else if ( d.SPECIES == "PRCE" ) { return "Purpleleaf Plum"
+					} else if ( d.SPECIES == "AM" ) { return "Serviceberry"
+					} else if ( d.SPECIES == "CEOC" ) { return "Hackberry"
+					} else if ( d.SPECIES == "CABE" ) { return "European Hornbeam"
+					} else if ( d.SPECIES == "QUPH" ) { return "Willow Oak"
+					} else if ( d.SPECIES == "QUAC" ) { return "Sawtooth Oak"
+					} else if ( d.SPECIES == "MA1" ) { return "Magnolia"
+					} else if ( d.SPECIES == "PO" ) { return "Poplar"
+					} else if ( d.SPECIES == "MO" ) { return "Mulberry"
+					} else if ( d.SPECIES == "QURU" ) { return "Northern Red Oak"
+					} else if ( d.SPECIES == "QUBI" ) { return "Swamp White Oak"
+					} else if ( d.SPECIES == "QURO" ) { return "English Oak"
+					} else if ( d.SPECIES == "QUAL" ) { return "White Oak"
+					} else if ( d.SPECIES == "MEGL" ) { return "Dawn Redwood"
+					} else if ( d.SPECIES == "PIST" ) { return "Eastern White Pine"
+					} else if ( d.SPECIES == "TADI" ) { return "Baldcypress";
+			 	}})
+			
+		points.call(tip);
+		
 zoomed();
 
 function createMap(dataset) {
+
 	d3.select("#points").selectAll("circle").data(dataset) //plotted 	locations on map
 	.enter()
 	.append("circle")
 	.style("fill", function(d) {
-				if ( d.SPECIES == "ZESE" ) {
-					return "red";
-				} else if ( d.SPECIES == "UNK" ) {
-					return "orange"
-				} else if ( d.SPECIES == "SYRE" ) {
-					return "yellow"
-				} else if ( d.SPECIES == "PLAC" ) {
-					return "green"
-				} else if ( d.SPECIES == "GIBI" ) {
-					return "aqua"
-				} else if ( d.SPECIES == "GLTR" ) {
-					return "blue"
-				} else if ( d.SPECIES == "FRPE" ) {
-					return "gray"
-				} else if ( d.SPECIES == "TICO" ) {
-					return "pink"
-				} else if ( d.SPECIES == "GYDI" ) {
-					return "red"
-				} else if ( d.SPECIES == "PRVISH" ) {
-					return "red"
-				} else if ( d.SPECIES == "TITO" ) {
-					return "red"
-				} else if ( d.SPECIES == "ACPLCR" ) {
-					return "red"								
-				} else if ( d.SPECIES == "AIAL" ) {
-					return "red"
-				} else {
-					return "none";
-				}})
+				if ( d.SPECIES == "ACPL" ) { return "#00567e"
+					} else if ( d.SPECIES == "ACRU" ) { return "#0084ff"
+					} else if ( d.SPECIES == "ACSA1" ) { return "#c3c3c3"
+					} else if ( d.SPECIES == "FRPE" ) { return "#007e59"
+					} else if ( d.SPECIES == "GLTR" ) { return "#dcab00"
+					} else if ( d.SPECIES == "TICO" ) { return "#006ddc"
+					} else if ( d.SPECIES == "PYCA" ) { return "#00dc53"
+					} else if ( d.SPECIES == "QUPA" ) { return "#739351"
+					} else if ( d.SPECIES == "PLAC" ) { return "#da4c4c"
+					} else if ( d.SPECIES == "GIBI" ) { return "#deee27"
+					} else if ( d.SPECIES == "SYRE" ) { return "#b827ee"
+					} else if ( d.SPECIES == "COFL" ) { return "#ee27a6"
+					} else if ( d.SPECIES == "CEJA" ) { return "#385b9a"
+					} else if ( d.SPECIES == "AEHI" ) { return "#193569"
+					} else if ( d.SPECIES == "ACPLCK" ) { return "#ff0030"
+					} else if ( d.SPECIES == "ACSA2" ) { return "#61827a"
+					} else if ( d.SPECIES == "ACCA" ) { return "#39806f"
+					} else if ( d.SPECIES == "ACGI" ) { return "#04646d"
+					} else if ( d.SPECIES == "ACPA" ) { return "#01a3e7"
+					} else if ( d.SPECIES == "ACPS" ) { return "#3c9eac"
+					} else if ( d.SPECIES == "STJA2" ) { return "#0b6d7c"
+					} else if ( d.SPECIES == "ROPS" ) { return "#000"
+					} else if ( d.SPECIES == "ULAM" ) { return "#cd3a00"
+					} else if ( d.SPECIES == "ULPA" ) { return "#7c2b0b"
+					} else if ( d.SPECIES == "ZESE" ) { return "#00cd05"
+					} else if ( d.SPECIES == "LIST" ) { return "#cd6f00"
+					} else if ( d.SPECIES == "GYDI" ) { return "#61390a"
+					} else if ( d.SPECIES == "AIAL" ) { return "#fff4c8"
+					} else if ( d.SPECIES == "KOPA" ) { return "#e0b712"
+					} else if ( d.SPECIES == "CECA" ) { return "#7b0c21"
+					} else if ( d.SPECIES == "LITU" ) { return "#b2223d"
+					} else if ( d.SPECIES == "TIAM" ) { return "#81d4d9"
+					} else if ( d.SPECIES == "TITO" ) { return "#759395"
+					} else if ( d.SPECIES == "CR" ) { return "#458b89"
+					} else if ( d.SPECIES == "MA2" ) { return "#9f001a"
+					} else if ( d.SPECIES == "PR" ) { return "#6b0037"
+					} else if ( d.SPECIES == "BE" ) { return "#096d67"
+					} else if ( d.SPECIES == "PRVISH" ) { return "#653e55"
+					} else if ( d.SPECIES == "PRCE" ) { return "#6f174b"
+					} else if ( d.SPECIES == "AM" ) { return "#22148c"
+					} else if ( d.SPECIES == "CEOC" ) { return "#94ac7d"
+					} else if ( d.SPECIES == "CABE" ) { return "#4f8c14"
+					} else if ( d.SPECIES == "QUPH" ) { return "#96a5c2"
+					} else if ( d.SPECIES == "QUAC" ) { return "#"
+					} else if ( d.SPECIES == "MA1" ) { return "#777f8d"
+					} else if ( d.SPECIES == "PO" ) { return "#a0d9d3"
+					} else if ( d.SPECIES == "MO" ) { return "#d9a0cf"
+					} else if ( d.SPECIES == "QURU" ) { return "#aa1639"
+					} else if ( d.SPECIES == "QUBI" ) { return "#eab3c0"
+					} else if ( d.SPECIES == "QURO" ) { return "#30526c"
+					} else if ( d.SPECIES == "QUAL" ) { return "#fff"
+					} else if ( d.SPECIES == "MEGL" ) { return "#f7a228"
+					} else if ( d.SPECIES == "PIST" ) { return "#c9ffab"
+					} else if ( d.SPECIES == "TADI" ) { return "#ff8034";
+			 	}})
 	.style("opacity", 0.7)
-	.attr("r", 8)
+	.attr("r", 6)
 	.attr("cx", function(d) {return projection([d.y,d.x])[0]})
 	.attr("cy", function(d) {return projection([d.y,d.x])[1]})
+	.on('mouseover', tip.show)
+	.on('mouseout', tip.hide);
 	zoomed();
 }
 
