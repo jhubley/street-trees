@@ -98,8 +98,13 @@ body {
 }
 
 button {
-  padding: 10px 20px;
+	width: 40px;
+	height:30px;
 	opacity: 1.0;
+	background: #aaa;
+	border: 1px solid #ccc;
+	font-size:16px;
+	color: #000;
 }
 
 button#zoom_in{
@@ -112,7 +117,7 @@ button#zoom_in{
 button#zoom_out{
 	position:absolute;
 	top: 20px;
-	left: 380px;
+	left: 370px;
 	z-index:9999
 }
 
@@ -133,7 +138,7 @@ button#zoom_out{
 }
 
 h3{
-	font-size: 18px !important;
+	font-size: 16px !important;
 	font-weight:normal !important;
 	margin: 0px;
 	padding:8px 0px 8px 20px;
@@ -157,11 +162,39 @@ h3{
 
 #accordion{
 	position:absolute;
-	z-index:99999999999999;
 }
 
 #filter1{
 	height:150px;
+}
+
+#diameters{
+	position:absolute;
+	bottom:76px;
+	z-index:99999;
+	padding-left:20px;
+	padding-top:15px;
+	padding-bottom:15px;
+	border-top:1px solid #333;
+	border-bottom:1px solid #333;
+	width: 280px;
+}
+#diameters p{
+	margin-top: 0px;
+	font-size:13px;
+}
+
+#diamtext ul{
+	padding:0px;
+	margin:0px;
+}
+	
+#diamtext li{
+	list-style-type: none;
+	list-style-image: none;
+	font-size:12px;
+	display:inline;
+	padding-right:30px;
 }
 	
 </style>
@@ -171,9 +204,9 @@ h3{
 <script src="d3.tip.js"></script>
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<button id="zoom_in">+</button>
+<button id="zoom_out">-</button>
 <div id="overlay">
-	<button id="zoom_in">+</button>
-	<button id="zoom_out">-</button>
 	<div id="filters">
 		<div id="accordion">
 		  <h3>Filter by Species</h3>
@@ -186,6 +219,26 @@ h3{
 		  <div id ="filter3">
 		  </div>
 		</div>
+	</div>
+	<div id="diameters">
+		<p>Tree Diameter</p>
+	<div id="diamcirc">
+	<svg width="250" height="36">
+		<!-- fourth block -->	
+		<circle cx="15" cy="18" r="3" fill="#fff" />
+		<circle cx="82" cy="18" r="6" fill="#fff" />
+		<circle cx="159" cy="18" r="12" fill="#fff" />
+		<circle cx="230" cy="18" r="18" fill="#fff" />
+	</svg>
+	</div>
+	<div id="diamtext">
+		<ul>
+			<li>< 10"</li>
+			<li>10 - 20"</li>
+			<li>20 - 45"</li>
+			<li>> 45"</li>
+		</ul>
+	</div>
 	</div>
 </div>
 <script>
@@ -369,6 +422,7 @@ function createMap(dataset) {
 	.on('mouseout', tip.hide);
 	zoomed();
 	
+// Species Filters (individual tree)
 	var filter1 = d3.select("#filter1")
 			// Add the filter
 			filter1.append("text")
@@ -409,7 +463,8 @@ function createMap(dataset) {
 							PLAC.active = active;
 							})
 							.text("Ginkgo");
-							
+						
+// Genus Filters							
 			var filter2 = d3.select("#filter2")
 					// Add the filter
 					filter2.append("text")
@@ -424,6 +479,23 @@ function createMap(dataset) {
 							PLAC.active = active;
 							})
 							.text("Sample Group");
+
+
+// Family Filters
+				var filter3 = d3.select("#filter3")
+						// Add the filter
+						filter3.append("text")
+						.attr("id", "legend")
+						.on("click", function(){
+									// Determine if current line is visible
+									var active   = PLAC.active ? false : true ,
+									newOpacity = active ? 0 : 1;
+									// Hide or show the elements
+									d3.selectAll("#GIBI, #PYCA, #TICO, #PLAC").style("opacity", newOpacity);
+									// Update whether or not the elements are active
+									PLAC.active = active;
+									})
+									.text("Sample Fam");							
 												
 }
 
@@ -437,7 +509,7 @@ function zoomed() {
       .scale(zoom.scale() / 2 / Math.PI)
       .translate(zoom.translate());
 
-			d3.selectAll("circle")
+			d3.selectAll("#points").filter("circle")
 			.attr("cx", function(d) {return projection([d.y,d.x])[0]})
 			.attr("cy", function(d) {return projection([d.y,d.x])[1]})
 
