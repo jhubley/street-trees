@@ -1,0 +1,1525 @@
+Code,Common,Genus,Species,Family,,,,,,,
+ACPL,Norway Maple,Acer,platanoides,Sapindaceae,"filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				var active   = PLAC.active ? false : true ,
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#",ACPL,""").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				PLAC.active = active;
+				})
+				.text(""",Norway Maple,""");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				var active   = PLAC.active ? false : true ,
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#ACPL"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				PLAC.active = active;
+				})
+				.text(""Norway Maple"");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				var active   = PLAC.active ? false : true ,
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#ACPL"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				PLAC.active = active;
+				})
+				.text(""Norway Maple"");"
+ACRU,Red Maple,Acer,rubrum,Sapindaceae,"filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#",ACRU,""").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""",Red Maple,""");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#ACRU"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Red Maple"");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#ACRU"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Red Maple"");"
+ACSA1,Silver Maple,Acer,saccharinum,Sapindaceae,"filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#",ACSA1,""").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""",Silver Maple,""");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#ACSA1"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Silver Maple"");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#ACSA1"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Silver Maple"");"
+FRPE,Green Ash,Fraxinus,pennsylvanica,Oleaceae,"filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#",FRPE,""").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""",Green Ash,""");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#FRPE"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Green Ash"");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#FRPE"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Green Ash"");"
+GLTR,Honeylocust,Gleditsia,triacanthos,Fabaceae,"filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#",GLTR,""").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""",Honeylocust,""");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#GLTR"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Honeylocust"");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#GLTR"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Honeylocust"");"
+TICO,Littleleaf Linden,Tilia,cordata,Tiliaceae,"filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#",TICO,""").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""",Littleleaf Linden,""");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#TICO"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Littleleaf Linden"");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#TICO"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Littleleaf Linden"");"
+PYCA,Callery Pear,Pyrus ,calleryana,Rosaceae,"filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#",PYCA,""").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""",Callery Pear,""");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#PYCA"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Callery Pear"");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#PYCA"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Callery Pear"");"
+QUPA,Pin Oak,Quercus,palustris,Fagaceae,"filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#",QUPA,""").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""",Pin Oak,""");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#QUPA"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Pin Oak"");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#QUPA"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Pin Oak"");"
+PLAC,London Planetree,Platanus,X acerfolia,Platanaceae,"filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#",PLAC,""").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""",London Planetree,""");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#PLAC"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""London Planetree"");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#PLAC"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""London Planetree"");"
+GIBI,Ginkgo,Ginkgo,biloba,Ginkgoaceae,"filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#",GIBI,""").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""",Ginkgo,""");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#GIBI"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Ginkgo"");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#GIBI"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Ginkgo"");"
+SYRE,Japanese Tree Lilac,Syringa,reticulata,Oleaceae,"filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#",SYRE,""").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""",Japanese Tree Lilac,""");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#SYRE"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Japanese Tree Lilac"");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#SYRE"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Japanese Tree Lilac"");"
+COFL,Flowering Dogwood,Cornus,florida,Cornaceae,"filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#",COFL,""").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""",Flowering Dogwood,""");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#COFL"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Flowering Dogwood"");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#COFL"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Flowering Dogwood"");"
+CEJA,Katsura Tree,Cercidiphyllum,japonicum,Cercidiphyllaceae,"filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#",CEJA,""").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""",Katsura Tree,""");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#CEJA"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Katsura Tree"");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#CEJA"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Katsura Tree"");"
+AEHI,Horsechestnut,Aesculus,hippocastanum,Sapindaceae,"filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#",AEHI,""").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""",Horsechestnut,""");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#AEHI"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Horsechestnut"");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#AEHI"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Horsechestnut"");"
+ACPLCK,Norway Maple Crimson King,Acer,platanoides 'Crimson King',Sapindaceae,"filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#",ACPLCK,""").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""",Norway Maple Crimson King,""");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#ACPLCK"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Norway Maple Crimson King"");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#ACPLCK"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Norway Maple Crimson King"");"
+ACSA2,Sugar Maple,Acer,saccharum,Sapindaceae,"filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#",ACSA2,""").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""",Sugar Maple,""");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#ACSA2"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Sugar Maple"");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#ACSA2"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Sugar Maple"");"
+ACCA,Hedge Maple,Acer,campestre,Sapindaceae,"filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#",ACCA,""").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""",Hedge Maple,""");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#ACCA"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Hedge Maple"");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#ACCA"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Hedge Maple"");"
+ACGI,Amur Maple,Acer,ginnala,Sapindaceae,"filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#",ACGI,""").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""",Amur Maple,""");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#ACGI"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Amur Maple"");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#ACGI"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Amur Maple"");"
+ACPA,Japanese Maple,Acer,palmatum,Sapindaceae,"filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#",ACPA,""").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""",Japanese Maple,""");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#ACPA"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Japanese Maple"");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#ACPA"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Japanese Maple"");"
+ACPS,Sycamore Maple,Acer,pseudoplatanus,Sapindaceae,"filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#",ACPS,""").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""",Sycamore Maple,""");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#ACPS"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Sycamore Maple"");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#ACPS"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Sycamore Maple"");"
+STJA2,Japanese Pagoda Tree,Sophora,japonica,Fabaceae,"filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#",STJA2,""").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""",Japanese Pagoda Tree,""");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#STJA2"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Japanese Pagoda Tree"");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#STJA2"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Japanese Pagoda Tree"");"
+ROPS,Black Locust,Robinia,pseudoacacia,Fabaceae,"filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#",ROPS,""").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""",Black Locust,""");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#ROPS"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Black Locust"");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#ROPS"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Black Locust"");"
+ULAM,American Elm,Ulmus,americana,Ulmaceae,"filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#",ULAM,""").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""",American Elm,""");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#ULAM"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""American Elm"");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#ULAM"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""American Elm"");"
+ULPA,Chinese Elm,Ulmus,parvifolia,Ulmaceae,"filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#",ULPA,""").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""",Chinese Elm,""");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#ULPA"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Chinese Elm"");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#ULPA"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Chinese Elm"");"
+ZESE,Japanese Zelkova,Zelkova,serrata,Ulmaceae,"filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#",ZESE,""").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""",Japanese Zelkova,""");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#ZESE"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Japanese Zelkova"");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#ZESE"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Japanese Zelkova"");"
+LIST,Sweetgum,Liquidambar,styraciflua,Altingiaceae,"filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#",LIST,""").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""",Sweetgum,""");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#LIST"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Sweetgum"");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#LIST"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Sweetgum"");"
+GYDI,Kentucky Coffeetree,Gymnocladus,dioicus,Fabaceae,"filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#",GYDI,""").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""",Kentucky Coffeetree,""");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#GYDI"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Kentucky Coffeetree"");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#GYDI"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Kentucky Coffeetree"");"
+AIAL,Tree of Heaven,Ailanthus,altissima,Simaroubaceae,"filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#",AIAL,""").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""",Tree of Heaven,""");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#AIAL"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Tree of Heaven"");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#AIAL"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Tree of Heaven"");"
+KOPA,Goldenrain Tree,Koelreuteria,paniculata,Sapindaceae,"filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#",KOPA,""").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""",Goldenrain Tree,""");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#KOPA"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Goldenrain Tree"");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#KOPA"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Goldenrain Tree"");"
+CECA,Eastern Redbud,Cercis,canadensis,Fabaceae,"filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#",CECA,""").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""",Eastern Redbud,""");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#CECA"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Eastern Redbud"");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#CECA"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Eastern Redbud"");"
+LITU,Tulip Tree,Liriodendron,tulipifera,Magnoliaceae,"filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#",LITU,""").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""",Tulip Tree,""");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#LITU"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Tulip Tree"");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#LITU"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Tulip Tree"");"
+TIAM,American Linden,Tilia,americana,Tiliaceae,"filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#",TIAM,""").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""",American Linden,""");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#TIAM"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""American Linden"");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#TIAM"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""American Linden"");"
+TITO,Silver Linden,Tilia,tomentosa,Malvaceae,"filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#",TITO,""").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""",Silver Linden,""");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#TITO"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Silver Linden"");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#TITO"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Silver Linden"");"
+CR,Hawthorn,Crataegus,monogyna,Rosaceae,"filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#",CR,""").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""",Hawthorn,""");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#CR"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Hawthorn"");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#CR"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Hawthorn"");"
+MA2,Crabapple,Malus,,Rosaceae,"filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#",MA2,""").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""",Crabapple,""");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#MA2"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Crabapple"");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#MA2"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Crabapple"");"
+PR,Flowering Cherry,Prunus,serrulata,Rosaceae,"filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#",PR,""").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""",Flowering Cherry,""");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#PR"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Flowering Cherry"");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#PR"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Flowering Cherry"");"
+BE,Birch,Betula,,Betulaceae,"filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#",BE,""").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""",Birch,""");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#BE"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Birch"");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#BE"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Birch"");"
+PRVISH,Schubert Cherry,Prunus,virginiana 'Schubert',Rosaceae,"filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#",PRVISH,""").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""",Schubert Cherry,""");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#PRVISH"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Schubert Cherry"");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#PRVISH"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Schubert Cherry"");"
+PRCE,Purpleleaf Plum,Prunus,cerasifera,Rosaceae,"filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#",PRCE,""").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""",Purpleleaf Plum,""");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#PRCE"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Purpleleaf Plum"");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#PRCE"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Purpleleaf Plum"");"
+AM,Serviceberry,Amelanchier,arborea,Rosaceae,"filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#",AM,""").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""",Serviceberry,""");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#AM"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Serviceberry"");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#AM"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Serviceberry"");"
+CEOC,Hackberry,Celtis,occidentalis,Cannabaceae,"filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#",CEOC,""").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""",Hackberry,""");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#CEOC"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Hackberry"");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#CEOC"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Hackberry"");"
+CABE,European Hornbeam,Carpinus,betulus,Betulaceae,"filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#",CABE,""").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""",European Hornbeam,""");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#CABE"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""European Hornbeam"");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#CABE"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""European Hornbeam"");"
+QUPH,Willow Oak,Quercus,phellos,Fagaceae,"filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#",QUPH,""").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""",Willow Oak,""");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#QUPH"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Willow Oak"");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#QUPH"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Willow Oak"");"
+QUAC,Sawtooth Oak,Quercus,acutissima,Fagaceae,"filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#",QUAC,""").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""",Sawtooth Oak,""");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#QUAC"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Sawtooth Oak"");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#QUAC"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Sawtooth Oak"");"
+MA1,Magnolia,Magnolia,,Magnoliaceae,"filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#",MA1,""").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""",Magnolia,""");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#MA1"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Magnolia"");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#MA1"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Magnolia"");"
+PO,Poplar,Populus,,Salicaceae,"filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#",PO,""").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""",Poplar,""");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#PO"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Poplar"");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#PO"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Poplar"");"
+MO,Mulberry,Morus,,Moraceae,"filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#",MO,""").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""",Mulberry,""");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#MO"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Mulberry"");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#MO"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Mulberry"");"
+QURU,Northern Red Oak,Quercus,rubra,Fagaceae,"filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#",QURU,""").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""",Northern Red Oak,""");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#QURU"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Northern Red Oak"");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#QURU"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Northern Red Oak"");"
+QUBI,Swamp White Oak,Quercus,bicolor,Fagaceae,"filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#",QUBI,""").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""",Swamp White Oak,""");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#QUBI"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Swamp White Oak"");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#QUBI"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Swamp White Oak"");"
+QURO,English Oak,Quercus,robur,Fagaceae,"filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#",QURO,""").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""",English Oak,""");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#QURO"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""English Oak"");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#QURO"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""English Oak"");"
+QUAL,White Oak,Quercus,alba,Fagaceae,"filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#",QUAL,""").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""",White Oak,""");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#QUAL"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""White Oak"");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#QUAL"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""White Oak"");"
+MEGL,Dawn Redwood,Metasequoia,glyptostroboides,Cupressaceae,"filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#",MEGL,""").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""",Dawn Redwood,""");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#MEGL"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Dawn Redwood"");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#MEGL"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Dawn Redwood"");"
+PIST,Eastern White Pine,Pinus,strobus,Pinaceae,"filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				var active   = PLAC.active ? false : true ,
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#",PIST,""").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				PLAC.active = active;
+				})
+				.text(""",Eastern White Pine,""");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				var active   = PLAC.active ? false : true ,
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#PIST"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				PLAC.active = active;
+				})
+				.text(""Eastern White Pine"");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				var active   = PLAC.active ? false : true ,
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#PIST"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				PLAC.active = active;
+				})
+				.text(""Eastern White Pine"");"
+TADI,Baldcypress,Taxodium,distichum,Cupressaceae,"filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#",TADI,""").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""",Baldcypress,""");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#TADI"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Baldcypress"");","filter1.append(""text"")
+		.attr(""id"", ""legend"")
+		.on(""click"", function(){
+				// Determine if current line is visible
+				newOpacity = active ? 0 : 1;
+				// Hide or show the elements
+				d3.selectAll(""#TADI"").style(""opacity"", newOpacity);
+				// Update whether or not the elements are active
+				})
+				.text(""Baldcypress"");"
