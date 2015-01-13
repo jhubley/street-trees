@@ -221,7 +221,7 @@ h3{
 		</div>
 	</div>
 	<div id="diameters">
-		<p>Tree Diameter</p>
+		<p>Tree Trunk Diameter</p>
 	<div id="diamcirc">
 	<svg width="250" height="36">
 		<!-- fourth block -->	
@@ -279,7 +279,7 @@ var layer = map.append("div")
 					
 var info = map.append("div")
     .attr("class", "info")
-		.html("<div id='leftbox'>Brooklyn Street Trees<br/>Data from <a href='https://nycopendata.socrata.com/Environment/Street-Tree-Census-Brooklyn-/ztcw-bzc8'>NYC Open Data</a></div>");
+		.html("<div id='leftbox'><span style='color:#0096ff;'>Brooklyn Street Trees</span><br/>Data from <a href='https://nycopendata.socrata.com/Environment/Street-Tree-Census-Brooklyn-/ztcw-bzc8'>NYC Open Data</a></div>");
 
 		var tip = d3.tip()
 		  .attr('class', 'd3-tip')
@@ -509,7 +509,7 @@ function zoomed() {
       .scale(zoom.scale() / 2 / Math.PI)
       .translate(zoom.translate());
 
-			d3.selectAll("#points").filter("circle")
+			d3.selectAll("#points").selectAll("circle")
 			.attr("cx", function(d) {return projection([d.y,d.x])[0]})
 			.attr("cy", function(d) {return projection([d.y,d.x])[1]})
 
