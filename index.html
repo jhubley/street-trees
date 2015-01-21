@@ -81,9 +81,9 @@ body {
 .d3-tip:after {
   box-sizing: border-box;
   display: inline;
-  font-size: 10px;
+  font-size: 20px;
   width: 100%;
-  line-height: 1;
+  line-height: .5;
   color: rgba(0, 0, 0, 0.8);
   content: "\25BC";
   position: absolute;
@@ -246,9 +246,26 @@ h3{
 var width = Math.max(960, window.innerWidth),
     height = Math.max(500, window.innerHeight),
     prefix = prefixMatch(["webkit", "ms", "Moz", "O"]);
+		
+//original data load - all at once
+// d3.csv("bktreeswgs84.csv", function(error, dataset) { createMap(dataset) });
 
-	  d3.csv("tree.csv", function(error, dataset) { createMap(dataset) });
 
+// lazy data load. split big file up more, and add a queue maybe? still takes a while.
+		d3.csv('tree11217.csv', function(err, smallCSV) {
+
+		  // Start loading big file immediately
+		  d3.csv('bktreeswgs84.csv', function(err, bigCSV) {
+		    data = bigCSV // when big data is loaded it replaces old partial data
+		    createMap(data) // redraw viz
+		  })  
+
+		  // This portion of code also starts immediately, while big file is still loading
+		  data = smallCSV
+		  createMap(data) // function which has all your d3 code and uses DS.data inside   
+		});
+		
+		
 var tile = d3.geo.tile()
     .size([width, height]);
 
@@ -259,7 +276,7 @@ var projection = d3.geo.mercator()
 var zoom = d3.behavior.zoom()
     .scale(projection.scale() * 2 * Math.PI)
     .scaleExtent([1 << 20, 1 << 25])
-    .translate(projection([-73.968114, 40.674673]).map(function(x) { return -x; }))
+    .translate(projection([-73.978277, 40.6791989]).map(function(x) { return -x; }))
     .on("zoom", zoomed);
 
 var container = d3.select("body").append("div")
@@ -281,11 +298,68 @@ var info = map.append("div")
     .attr("class", "info")
 		.html("<div id='leftbox'><span style='color:#0096ff;'>Brooklyn Street Trees</span><br/>Data from <a href='https://nycopendata.socrata.com/Environment/Street-Tree-Census-Brooklyn-/ztcw-bzc8'>NYC Open Data</a></div>");
 
-		var tip = d3.tip()
-		  .attr('class', 'd3-tip')
-		  .offset([-10, 0])
-		  .html(function(d) { 
-				if ( d.SPECIES == "ACPL" ) { return "Norway Maple"
+var trees = {
+		ACPL: ['Norway Maple', 'Acer', 'platanoides', 'Sapindaceae', '#00567e'],
+		ACRU: ['Red Maple', 'Acer', 'rubrum', 'Sapindaceae', '#0084ff'],
+		ACSA1: ['Silver Maple', 'Acer', 'saccharinum', 'Sapindaceae', '#c3c3c3'],
+		FRPE: ['Green Ash', 'Fraxinus', 'pennsylvanica', 'Oleaceae', '#007e59'],
+		GLTR: ['Honeylocust', 'Gleditsia', 'triacanthos', 'Fabaceae', '#dcab00'],
+		TICO: ['Littleleaf Linden', 'Tilia', 'cordata', 'Tiliaceae', '#006ddc'],
+		PYCA: ['Callery Pear', 'Pyrus ', 'calleryana', 'Rosaceae', '#00dc53'],
+		QUPA: ['Pin Oak', 'Quercus', 'palustris', 'Fagaceae', '#739351'],
+		PLAC: ['London Planetree', 'Platanus', 'X acerfolia', 'Platanaceae', '#da4c4c'],
+		GIBI: ['Ginkgo', 'Ginkgo', 'biloba', 'Ginkgoaceae', '#deee27'],
+		SYRE: ['Japanese Tree Lilac', 'Syringa', 'reticulata', 'Oleaceae', '#b827ee'],
+		COFL: ['Flowering Dogwood', 'Cornus', 'florida', 'Cornaceae', '#ee27a6'],
+		CEJA: ['Katsura Tree', 'Cercidiphyllum', 'japonicum', 'Cercidiphyllaceae', '#385b9a'],
+		AEHI: ['Horsechestnut', 'Aesculus', 'hippocastanum', 'Sapindaceae', '#193569'],
+		ACPLCK: ['Norway Maple Crimson King', 'Acer', 'platanoides Crimson King', 'Sapindaceae', '#ff0030'],
+		ACSA2: ['Sugar Maple', 'Acer', 'saccharum', 'Sapindaceae', '#61827a'],
+		ACCA: ['Hedge Maple', 'Acer', 'campestre', 'Sapindaceae', '#39806f'],
+		ACGI: ['Amur Maple', 'Acer', 'ginnala', 'Sapindaceae', '#04646d'],
+		ACPA: ['Japanese Maple', 'Acer', 'palmatum', 'Sapindaceae', '#01a3e7'],
+		ACPS: ['Sycamore Maple', 'Acer', 'pseudoplatanus', 'Sapindaceae', '#3c9eac'],
+		STJA2: ['Japanese Pagoda Tree', 'Sophora', 'japonica', 'Fabaceae', '#0b6d7c'],
+		ROPS: ['Black Locust', 'Robinia', 'pseudoacacia', 'Fabaceae', '#000'],
+		ULAM: ['American Elm', 'Ulmus', 'americana', 'Ulmaceae', '#cd3a00'],
+		ULPA: ['Chinese Elm', 'Ulmus', 'parvifolia', 'Ulmaceae', '#7c2b0b'],
+		ZESE: ['Japanese Zelkova', 'Zelkova', 'serrata', 'Ulmaceae', '#00cd05'],			
+		LIST: ['Sweetgum', 'Liquidambar', 'styraciflua', 'Altingiaceae', '#cd6f00'],
+		GYDI: ['Kentucky Coffeetree', 'Gymnocladus', 'dioicus', 'Fabaceae', '#61390a'],
+		AIAL: ['Tree of Heaven', 'Ailanthus', 'altissima', 'Simaroubaceae', '#fff4c8'],
+		KOPA: ['Goldenrain Tree', 'Koelreuteria', 'paniculata', 'Sapindaceae', '#e0b712'],
+		CECA: ['Eastern Redbud', 'Cercis', 'canadensis', 'Fabaceae', '#7b0c21'],
+		LITU: ['Tulip Tree', 'Liriodendron', 'tulipifera', 'Magnoliaceae', '#b2223d'],
+		TIAM: ['American Linden', 'Tilia', 'americana', 'Tiliaceae', '#81d4d9'],
+		TITO: ['Silver Linden', 'Tilia', 'tomentosa', 'Malvaceae', '#759395'],
+		CR: ['Hawthorn', 'Crataegus', 'monogyna', 'Rosaceae', '#458b89'],
+		MA2: ['Crabapple', 'Malus', '', 'Rosaceae', '#9f001a'],
+		PR: ['Flowering Cherry', 'Prunus', 'serrulata', 'Rosaceae', '#6b0037'],
+		BE: ['Birch', 'Betula', '', 'Betulaceae', '#096d67'],
+		PRVISH: ['Schubert Cherry', 'Prunus', 'virginiana Schubert', 'Rosaceae', '#653e55'],
+		PRCE: ['Purpleleaf Plum', 'Prunus', 'cerasifera', 'Rosaceae', '#6f174b'],
+		AM: ['Serviceberry', 'Amelanchier', 'arborea', 'Rosaceae', '#22148c'],
+		CEOC: ['Hackberry', 'Celtis', 'occidentalis', 'Cannabaceae', '#94ac7d'],
+		CABE: ['European Hornbeam', 'Carpinus', 'betulus', 'Betulaceae', '#4f8c14'],
+		QUPH: ['Willow Oak', 'Quercus', 'phellos', 'Fagaceae', '#96a5c2'],
+		QUAC: ['Sawtooth Oak', 'Quercus', 'acutissima', 'Fagaceae', '#fff0ff'],
+		MA1: ['Magnolia', 'Magnolia', '', 'Magnoliaceae', '#777f8d'],
+		PO: ['Poplar', 'Populus', '', 'Salicaceae', '#a0d9d3'],
+		MO: ['Mulberry', 'Morus', '', 'Moraceae', '#d9a0cf'],
+		QURU: ['Northern Red Oak', 'Quercus', 'rubra', 'Fagaceae', '#aa1639'],
+		QUBI: ['Swamp White Oak', 'Quercus', 'bicolor', 'Fagaceae', '#eab3c0'],
+		QURO: ['English Oak', 'Quercus', 'robur', 'Fagaceae', '#30526c'],
+		QUAL: ['White Oak', 'Quercus', 'alba', 'Fagaceae', '#fff'],
+		MEGL: ['Dawn Redwood', 'Metasequoia', 'glyptostroboides', 'Cupressaceae', '#f7a228'],
+		PIST: ['Eastern White Pine', 'Pinus', 'strobus', 'Pinaceae', '#c9ffab'],
+		TADI: ['Baldcypress', 'Taxodium', 'distichum', 'Cupressaceae', '#ff8034'],
+};
+
+var tip = d3.tip()
+		.attr('class', 'd3-tip')
+		.offset([-10, 0])
+		.html(function(d) { 
+			if ( d.SPECIES == "ACPL" ) { return "Norway Maple"
 					} else if ( d.SPECIES == "ACRU" ) { return "Red Maple"
 					} else if ( d.SPECIES == "ACSA1" ) { return "Silver Maple"
 					} else if ( d.SPECIES == "FRPE" ) { return "Green Ash"
@@ -340,15 +414,15 @@ var info = map.append("div")
 					} else if ( d.SPECIES == "PIST" ) { return "Eastern White Pine"
 					} else if ( d.SPECIES == "TADI" ) { return "Baldcypress"
 					} else { return "Unknown";
-			 	}})
+}})
 			
 		points.call(tip);
 		
 zoomed();
 
-function createMap(dataset) {
-
-	d3.select("#points").selectAll("circle").data(dataset) //plotted 	locations on map
+function createMap(data) {
+	var scale = zoom.scale() / 10000000000 + 1
+	d3.select("#points").selectAll("circle").data(data) //plotted 	locations on map
 	.enter()
 	.append("circle")
 	.style("fill", function(d) {
@@ -360,7 +434,7 @@ function createMap(dataset) {
 					} else if ( d.SPECIES == "TICO" ) { return "#006ddc"
 					} else if ( d.SPECIES == "PYCA" ) { return "#00dc53"
 					} else if ( d.SPECIES == "QUPA" ) { return "#739351"
-					} else if ( d.SPECIES == "PLAC" ) { return "#da4c4c"
+					} else if ( d.SPECIES == "PLAC" ) { return "#e53b00"
 					} else if ( d.SPECIES == "GIBI" ) { return "#deee27"
 					} else if ( d.SPECIES == "SYRE" ) { return "#b827ee"
 					} else if ( d.SPECIES == "COFL" ) { return "#ee27a6"
@@ -410,14 +484,14 @@ function createMap(dataset) {
 			 	}})
 	.style("opacity", 0.7)
 	.attr("r", function(d) { 
-		if ( d.DIAMETER <= 10 ) { return "3"
-			} else if ( d.DIAMETER > 10 && d.DIAMETER <= 20 ) { return "6"
-			} else if ( d.DIAMETER > 20 && d.DIAMETER <= 45 ) { return "12"
-			} else if ( d.DIAMETER > 45 ) { return "18";
+		if ( d.DIAMETER <= 10 ) { return .0000003*zoom.scale()
+			} else if ( d.DIAMETER > 10 && d.DIAMETER <= 20 ) { return .0000006*zoom.scale()
+			} else if ( d.DIAMETER > 20 && d.DIAMETER <= 45 ) { return .0000012*zoom.scale()
+			} else if ( d.DIAMETER > 45 ) { return .0000018*zoom.scale();
 		}})
 	.attr("id", function(d) { return d.SPECIES })
-	.attr("cx", function(d) {return projection([d.y,d.x])[0]})
-	.attr("cy", function(d) {return projection([d.y,d.x])[1]})
+	.attr("cx", function(d) {return projection([d.longitude,d.latitude])[0]})
+	.attr("cy", function(d) {return projection([d.longitude,d.latitude])[1]})
 	.on('mouseover', tip.show)
 	.on('mouseout', tip.hide);
 	zoomed();
@@ -510,8 +584,14 @@ function zoomed() {
       .translate(zoom.translate());
 
 			d3.selectAll("#points").selectAll("circle")
-			.attr("cx", function(d) {return projection([d.y,d.x])[0]})
-			.attr("cy", function(d) {return projection([d.y,d.x])[1]})
+			.attr("cx", function(d) {return projection([d.longitude,d.latitude])[0]})
+			.attr("cy", function(d) {return projection([d.longitude,d.latitude])[1]})
+			.attr("r", function(d) { 
+				if ( d.DIAMETER <= 10 ) { return .0000003*zoom.scale()
+					} else if ( d.DIAMETER > 10 && d.DIAMETER <= 20 ) { return .0000006*zoom.scale()
+					} else if ( d.DIAMETER > 20 && d.DIAMETER <= 45 ) { return .0000012*zoom.scale()
+					} else if ( d.DIAMETER > 45 ) { return .0000018*zoom.scale();
+				}})
 
   var image = layer
       .style(prefix + "transform", matrix3d(tiles.scale, tiles.translate))
