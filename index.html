@@ -355,20 +355,18 @@ var trees = [
 		{code: 'TADI', common: 'Baldcypress', genus: 'Taxodium', species: 'distichum', family: 'Cupressaceae', color: '#ff8034'}
 ];
 		
-trees.forEach(function(t) {
-	var boo = t.code
-	var sue = t.common
-});
+var treeCode = trees.forEach(function(each) { console.log(each.code); });
+var treeCommon = trees.forEach(function(each) { console.log(each.common); });
 
 var tip = d3.tip()
 		.attr('class', 'd3-tip')
 		.offset([-10, 0])
-		.html(function(d){if (d.SPECIES == boo){
-			return sue
-		}
-			})
-			
-		points.call(tip);
+		.html(function(d){if (d.SPECIES == treeCode){
+			return treeCommon}
+		})
+
+						
+points.call(tip);
 		
 zoomed();
 
