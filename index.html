@@ -1,631 +1,528 @@
 <!DOCTYPE html>
-<meta charset="utf-8">
-<style>
+<head>
+  <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css" />
+	<link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700|Fjalla+One' rel='stylesheet' type='text/css'>
+  <script src="http://libs.cartocdn.com/cartodb.js/v3/cartodb.js"></script>
+  <meta name="MobileOptimized" content="width">
+  <meta name="HandheldFriendly" content="true">
+  <meta name="viewport" content="width=device-width">
+  <!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v2/themes/css/cartodb.ie.css" />
+  <![endif]-->
+  <style>
+    html, body {
+			width:100%; 
+			height:100%; 
+			padding: 0; 
+			margin: 0;
+			font-family: Arial, Helvetica, sans-serif;
+		}
+		h1{
+			font-family: 'Oswald', sans-serif;
+			font-size:30px;
+			line-height:100%;
+			font-weight:normal;
+			z-index:1000;
+/*	  position:absolute;
+			top:10px;
+			left:10px;
+			padding:30px;
+			color:#fff;
+			text-shadow: 2px 2px 14px rgba(0, 0, 0, 1);
+			z-index:100;
+*/		}
+		.nextline{
+			clear:both;
+		}
+		p{margin:15px 0px;}
+		.cartodb-logo img{ visibility:hidden; }
+    #map { 
+	 		width: 100%; 
+			height:100%; 
+			background: #000;
+			cursor:default;
+		}
+		#footerbg{
+			position:absolute;
+			bottom:0;
+			right:0;
+			width:445px;
+			height:50px;
+			background:#000;
+			opacity:.7;
+			z-index:10;
+			border-top-left-radius:5px;
+			-moz-border-radius-topleft:5px;
+			-webkit-border-top-left-radius:5px;
+		}
+		#menu{
+			position:absolute;
+			bottom:10px;
+			right:230px;
+			z-index:1000;
+			color: #000;
+		}
+		#menu a {
+			color: #111; 
+			text-decoration:none;
+			background: #fff; 
+			padding:2px 5px; 
+			font-size:12px; 
+			font-family: Arial, Helvetica, sans-serif;
+			z-index:100;	
+		}
+		.leaflet-left{
+			left:121px;
+		}
+		.leaflet-control-zoom{
+			width:53px;
+		}
+		.leaflet-control-zoom-out{
+			width:26px;
+			float:left;
+			border-radius:0px !important;
+			border:0px !important;
+		}
+		.leaflet-control-zoom-in{
+			width:26px;
+			float:left;
+			border-radius:0px !important;
+			border:0px !important;
+			border-right:1px solid #888;
+			margin-right:1px;
+		}
+		#credit{
+			position:absolute;
+			bottom:0;
+			left:0;
+			background:#ccc;
+			font-size:11px;
+			padding:2px 3px 2px 5px;
+			color:#555;
+		}
+		#diameter{
+			position:absolute;
+			bottom:17px;
+			left:0;
+			background:#ccc;
+			font-size:11px;
+			padding:2px 3px 2px 5px;
+			color:#555;
+			opacity:.9;
+		}
+		#base{
+			position:absolute;
+			bottom:10px;
+			right:140px;
+			padding:6px 10px 6px 10px;
+			background:#777;
+			color:#fff;
+			font-size:12px;
+			text-transform:uppercase;
+			z-index:100;	
+		}
+		#adder{
+			position:absolute;
+			bottom:10px;
+			right:109px;
+			height:26px;
+			padding:7px;
+			font-size:10px;
+			border:0px;
+			border-right:1px solid #999;
+			z-index:100;	
+		}
+/*		@supports (-webkit-appearance:none) {
+			#adder{height:25.5px;}
+		}*/
+		#remover{
+			position:absolute;
+			bottom:10px;
+			height:26px;
+			right:75px;
+			padding:7px;
+			font-size:10px;
+			border:0px;
+			z-index:100;	
+		}
+		#intro {
+      position: absolute;
+			top: 20px;
+			left:30px;
+			width:250px;
+			background:#f6f6f6;
+			opacity:1;
+			overflow:auto;
+			padding:25px 25px 15px 25px;
+			font-size:14px;
+			color:#151515;
+			border-radius:3px;
+			z-index:900;
+		}
+		a{
+			text-decoration:none;
+			color:#008A8A;
+		}
+		#m1{
+			overflow:auto;
+			max-height: 405px;
+			border-bottom:1px solid #666;
+		}
+		.button svg{
+			width:10px;
+			height:10px;
+			margin-right:10px;
+		}
+		#sddm{	
+			margin: 0;
+			padding: 0;
+			z-index: 30;
+		}
+		#sddm ul{
+			border-top:1px solid #aaa;
+		}
+		#sddm li{	
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			float: left;
+			font: 11px arial;
+		}
+		#sddm li a{	display: block;
+			margin: 0 1px 0 0;
+			padding: 6px 15px;
+			width: 170px;
+			background: url('caret.png') no-repeat 170px 10px #777;
+			color: #fff;
+			font-size:12px;
+			text-align: left;
+			text-decoration: none;
+			font-weight:normal;
+			border:1px solid #666;
+		}
+		#sddm li a.first{
+			text-transform:uppercase;			
+			padding: 6px 15px 5px;
+		}
+		#sddm li a:hover{	
+			background: url('caret.png') no-repeat 170px 10px #777;
+		}
+		#sddm div{	
+			position: absolute;
+			visibility: hidden;
+			margin: 0;
+			padding: 0;
+			background: #EAEBD8;
+			bottom: 100%;	
+		}
+		#sddm div a{	position: relative;
+			display: block;
+			margin: 0;
+			padding: 6px 15px;
+			width: 170px;
+			white-space: nowrap;
+			text-align: left;
+			text-decoration: none;
+			background: #222;
+			color: #fff;
+			font-size:12px;
+			border-bottom:0px;
+		}
+		#sddm div a:hover{	
+			background: #777;
+			color: #FFF;
+			font-size:12px;
+		}
+		.btn-group{
+			position:relative;
+			z-index:1000;
+		}
+		a.more{
+			font-size:14px;
+		}
+		.cartodb-tooltip{
+			padding:2px !important;
+			min-width:0px !important;
+		}
+		.cartodb-tooltip-content{
+			padding:4px 6px !important;
+		}
+		.cartodb-tooltip-content p{
+		  font: normal 11px "Helvetica Neue", "Helvetica", Arial !important;
+		}
+		@media screen and (max-width: 480px) {
+			#intro{
+				width:100%;
+				top:0px;
+				left:0px;
+				border-radius:0px;
+				padding:10px 15px;
+			}
+			#intro h1{
+				font-size:25px;
+			}
+			.nextline{
+				float:left;
+				padding-right:5px;
+				clear:none;
+			}
+			#intro p{
+				display:none;
+			}
+			#menu{
+				margin-bottom:22px;
+				left:0;
+				width:100% !important;
+			}
+			#sddm, #sddm li, #m1{
+				width:100% !important;
+			}
+			#sddm div a, #sddm li a{
+				width: 100% !important;
+			}
+			#adder, #remover, #base, #diameter{
+				display:none;
+			}
+			.leaflet-left {
+			  left: 0;
+			}
+			#credit{
+				padding-bottom: 16px;
+			  width: 100%;
+			  bottom: 0px;
+			  height: 14px;
+			}
+			.leaflet-control-zoom {
+			  display:none;
+			}
+			.leaflet-control-attribution{
+				margin-bottom:0px;
+				background:none !important;
+			}
+			#footerbg{
+				display:none;
+			}
+		}
+  </style>
+	<script type="infowindow/html" id="infowindow_template">
+	  <div class="cartodb-popup">
+	    <a href="#close" class="cartodb-popup-close-button close">x</a>
+	     <div class="cartodb-popup-content-wrapper">
+	       <div class="cartodb-popup-header">
+	         <img style="width: 100%" src="http://cartodb.com/assets/logos/logos_full_cartodb_light.png"></src>
+	       </div>
+	       <div class="cartodb-popup-content">
+	         <!-- content.data contains the field info -->
+	         <p>whatup</p>
+	       </div>
+	     </div>
+	     <div class="cartodb-popup-tip-container"></div>
+	  </div>
+	</script>
+  <script>
 
-body {
-  margin: 0;
-}
-
-#container {
-  position: relative;
-  overflow: hidden;
-	background: #35363b;
-}
-
-#map{
-	width:100%;
-	height:100%;
-}
-
-#points{
-	width:100%;
-	height:100%;
-	position:relative;
-	z-index:100;
-}
-
-.layer {
-  position: absolute;
-}
-
-.tile {
-  pointer-events: none;
-  position: absolute;
-  width: 256px;
-  height: 256px;
-}
-
-.info {
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
-	padding: 20px;
-	background: #000;
-	color: #fff;
-	width: 260px;
-	z-index: 1000;
-	font-family:Helvetica, Arial, sans-serif;
-	font-size:16px;
-	color: #999;
-	opacity:0.9;
-}
-
-.info a{
-	color: #ccc;
-	text-decoration: none;
-}
-
-#leftbox{
-	float:left;
-}
-
-#rightbox{
-	position:absolute;
-	right:80px;
-}
-
-.d3-tip {
-  line-height: 1;
-  font-weight: normal;
-	font-family: Helvetica, Arial, sans-serif;
-	font-size:13px;
-  padding: 8px;
-  background: rgba(0, 0, 0, 0.8);
-  color: #fff;
-  border-radius: 3px;
-	position:relative;
-	z-index:101;
-}
-
-/* Creates a small triangle extender for the tooltip */
-.d3-tip:after {
-  box-sizing: border-box;
-  display: inline;
-  font-size: 20px;
-  width: 100%;
-  line-height: .5;
-  color: rgba(0, 0, 0, 0.8);
-  content: "\25BC";
-  position: absolute;
-  text-align: center;
-}
-
-/* Style northward tooltips differently */
-.d3-tip.n:after {
-  margin: -1px 0 0 0;
-  top: 100%;
-  left: 0;
-}
-
-button {
-	width: 40px;
-	height:30px;
-	opacity: 1.0;
-	background: #aaa;
-	border: 1px solid #ccc;
-	font-size:16px;
-	color: #000;
-}
-
-button#zoom_in{
-	position:absolute;
-	top: 20px;
-	left: 320px;
-	z-index:9999;
-}
-
-button#zoom_out{
-	position:absolute;
-	top: 20px;
-	left: 370px;
-	z-index:9999
-}
-
-#overlay{
-	position: absolute;
-	z-index: 1000;
-	font-family:Helvetica, Arial, sans-serif;
-	font-size:16px;
-	color: #fff;
-	background: #000;
-	opacity:0.7;
-	width: 300px;
-	height:100%;
-	left:0;
-	top:0px;
-	padding: 0px 0px;
-	overflow:visible;
-}
-
-h3{
-	font-size: 16px !important;
-	font-weight:normal !important;
-	margin: 0px;
-	padding:8px 0px 8px 20px;
-	background:#333;
-	width:280px;
-	border-bottom:1px solid #222;
-}
-
-#legend {
-	font-size: 16px;         
-	cursor: pointer;
-	position:relative;
-	z-index: 1000;
-	fill: #ffffff;
-	width:280px;
-	float: left;
-	padding: 6px 0px 6px 20px;
-	background: #111;
-	border-bottom:1px solid #333;
-}
-
-#accordion{
-	position:absolute;
-}
-
-#filter1{
-	height:150px;
-}
-
-#diameters{
-	position:absolute;
-	bottom:76px;
-	z-index:99999;
-	padding-left:20px;
-	padding-top:15px;
-	padding-bottom:15px;
-	border-top:1px solid #333;
-	border-bottom:1px solid #333;
-	width: 280px;
-}
-#diameters p{
-	margin-top: 0px;
-	font-size:13px;
-}
-
-#diamtext ul{
-	padding:0px;
-	margin:0px;
-}
+	  // dropdown
 	
-#diamtext li{
-	list-style-type: none;
-	list-style-image: none;
-	font-size:12px;
-	display:inline;
-	padding-right:30px;
-}
-	
-</style>
-<body>
-<script src="d3.min.js"></script>
-<script src="d3.geo.tile.min.js"></script>
-<script src="d3.tip.js"></script>
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-<button id="zoom_in">+</button>
-<button id="zoom_out">-</button>
-<div id="overlay">
-	<div id="filters">
-		<div id="accordion">
-		  <h3>Filter by Species</h3>
-		  <div id="filter1">
-		  </div>
-		  <h3>Filter by Genus</h3>
-		  <div id ="filter2">
-		  </div>
-		  <h3>Filter by Family</h3>
-		  <div id ="filter3">
-		  </div>
-		</div>
-	</div>
-	<div id="diameters">
-		<p>Tree Trunk Diameter</p>
-	<div id="diamcirc">
-	<svg width="250" height="36">
-		<!-- fourth block -->	
-		<circle cx="15" cy="18" r="3" fill="#fff" />
-		<circle cx="82" cy="18" r="6" fill="#fff" />
-		<circle cx="159" cy="18" r="12" fill="#fff" />
-		<circle cx="230" cy="18" r="18" fill="#fff" />
-	</svg>
-	</div>
-	<div id="diamtext">
-		<ul>
-			<li>< 10"</li>
-			<li>10 - 20"</li>
-			<li>20 - 45"</li>
-			<li>> 45"</li>
-		</ul>
-	</div>
-	</div>
-</div>
-<script>
+		var timeout	= 200;
+		var closetimer	= 0;
+		var ddmenuitem	= 0;
 
-var width = Math.max(960, window.innerWidth),
-    height = Math.max(500, window.innerHeight),
-    prefix = prefixMatch(["webkit", "ms", "Moz", "O"]);
+		function mopen(id){	
+			mcancelclosetime();
+			if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+			ddmenuitem = document.getElementById(id);
+			ddmenuitem.style.visibility = 'visible';
+		}
+
+		function mclose(){
+			if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+		}
+
+		function mclosetime(){
+			closetimer = window.setTimeout(mclose, timeout);
+		}
+
+		function mcancelclosetime(){
+			if(closetimer){
+				window.clearTimeout(closetimer);
+				closetimer = null;
+			}
+		}
+
+		document.onclick = mclose;
 		
-//original data load - all at once
-// d3.csv("bktreeswgs84.csv", function(error, dataset) { createMap(dataset) });
-
-
-// lazy data load. split big file up more, and add a queue maybe? still takes a while.
-		d3.csv('tree11217.csv', function(err, smallCSV) {
-
-		  // Start loading big file immediately
-		  d3.csv('bktreeswgs84.csv', function(err, bigCSV) {
-		    data = bigCSV // when big data is loaded it replaces old partial data
-		    createMap(data) // redraw viz
-		  })  
-
-		  // This portion of code also starts immediately, while big file is still loading
-		  data = smallCSV
-		  createMap(data) // function which has all your d3 code and uses DS.data inside   
-		});
+		// map
 		
-		
-var tile = d3.geo.tile()
-    .size([width, height]);
-
-var projection = d3.geo.mercator()
-.scale((1 << 21) / 2 / Math.PI)
-.translate([-width / 2, -height / 2]); // just temporary
-
-var zoom = d3.behavior.zoom()
-    .scale(projection.scale() * 2 * Math.PI)
-    .scaleExtent([1 << 20, 1 << 25])
-    .translate(projection([-73.978277, 40.6791989]).map(function(x) { return -x; }))
-    .on("zoom", zoomed);
-
-var container = d3.select("body").append("div")
-    .attr("id", "container")
-    .style("width", width + "px")
-    .style("height", height + "px")
-    .call(zoom);
-
-var map = container.append("g")
-		.attr("id", "map")
-
-var points = container.append("svg")
-		.attr("id", "points")
-				
-var layer = map.append("div")
-    .attr("class", "layer");
-					
-var info = map.append("div")
-    .attr("class", "info")
-		.html("<div id='leftbox'><span style='color:#0096ff;'>Brooklyn Street Trees</span><br/>Data from <a href='https://nycopendata.socrata.com/Environment/Street-Tree-Census-Brooklyn-/ztcw-bzc8'>NYC Open Data</a></div>");
-
-var trees = [
-		{code: 'ACPL', common: 'Norway Maple', genus: 'Acer', species: 'platanoides', family: 'Sapindaceae', color: '#00567e'},
-		{code: 'ACRU', common: 'Red Maple', genus: 'Acer', species: 'rubrum', family: 'Sapindaceae', color: '#0084ff'},
-		{code: 'ACSA1', common: 'Silver Maple', genus: 'Acer', species: 'saccharinum', family: 'Sapindaceae', color: '#c3c3c3'},
-		{code: 'FRPE', common: 'Green Ash', genus: 'Fraxinus', species: 'pennsylvanica', family: 'Oleaceae', color: '#007e59'},
-		{code: 'GLTR', common: 'Honeylocust', genus: 'Gleditsia', species: 'triacanthos', family: 'Fabaceae', color: '#dcab00'},
-		{code: 'TICO', common: 'Littleleaf Linden', genus: 'Tilia', species: 'cordata', family: 'Tiliaceae', color: '#006ddc'},
-		{code: 'PYCA', common: 'Callery Pear', genus: 'Pyrus ', species: 'calleryana', family: 'Rosaceae', color: '#00dc53'},
-		{code: 'QUPA', common: 'Pin Oak', genus: 'Quercus', species: 'palustris', family: 'Fagaceae', color: '#739351'},
-		{code: 'PLAC', common: 'London Planetree', genus: 'Platanus', species: 'X acerfolia', family: 'Platanaceae', color: '#da4c4c'},
-		{code: 'GIBI', common: 'Ginkgo', genus: 'Ginkgo', species: 'biloba', family: 'Ginkgoaceae', color: '#deee27'},
-		{code: 'SYRE', common: 'Japanese Tree Lilac', genus: 'Syringa', species: 'reticulata', family: 'Oleaceae', color: '#b827ee'},
-		{code: 'COFL', common: 'Flowering Dogwood', genus: 'Cornus', species: 'florida', family: 'Cornaceae', color: '#ee27a6'},
-		{code: 'CEJA', common: 'Katsura Tree', genus: 'Cercidiphyllum', species: 'japonicum', family: 'Cercidiphyllaceae', color: '#385b9a'},
-		{code: 'AEHI', common: 'Horsechestnut', genus: 'Aesculus', species: 'hippocastanum', family: 'Sapindaceae', color: '#193569'},
-		{code: 'ACPLCK', common: 'Norway Maple Crimson King', genus: 'Acer', species: 'platanoides Crimson King', family: 'Sapindaceae', color: '#ff0030'},
-		{code: 'ACSA2', common: 'Sugar Maple', genus: 'Acer', species: 'saccharum', family: 'Sapindaceae', color: '#61827a'},
-		{code: 'ACCA', common: 'Hedge Maple', genus: 'Acer', species: 'campestre', family: 'Sapindaceae', color: '#39806f'},
-		{code: 'ACGI', common: 'Amur Maple', genus: 'Acer', species: 'ginnala', family: 'Sapindaceae', color: '#04646d'},
-		{code: 'ACPA', common: 'Japanese Maple', genus: 'Acer', species: 'palmatum', family: 'Sapindaceae', color: '#01a3e7'},
-		{code: 'ACPS', common: 'Sycamore Maple', genus: 'Acer', species: 'pseudoplatanus', family: 'Sapindaceae', color: '#3c9eac'},
-		{code: 'STJA2', common: 'Japanese Pagoda Tree', genus: 'Sophora', species: 'japonica', family: 'Fabaceae', color: '#0b6d7c'},
-		{code: 'ROPS', common: 'Black Locust', genus: 'Robinia', species: 'pseudoacacia', family: 'Fabaceae', color: '#000'},
-		{code: 'ULAM', common: 'American Elm', genus: 'Ulmus', species: 'americana', family: 'Ulmaceae', color: '#cd3a00'},
-		{code: 'ULPA', common: 'Chinese Elm', genus: 'Ulmus', species: 'parvifolia', family: 'Ulmaceae', color: '#7c2b0b'},
-		{code: 'ZESE', common: 'Japanese Zelkova', genus: 'Zelkova', species: 'serrata', family: 'Ulmaceae', color: '#00cd05'},
-		{code: 'LIST', common: 'Sweetgum', genus: 'Liquidambar', species: 'styraciflua', family: 'Altingiaceae', color: '#cd6f00'},
-		{code: 'GYDI', common: 'Kentucky Coffeetree', genus: 'Gymnocladus', species: 'dioicus', family: 'Fabaceae', color: '#61390a'},
-		{code: 'AIAL', common: 'Tree of Heaven', genus: 'Ailanthus', species: 'altissima', family: 'Simaroubaceae', color: '#fff4c8'},
-		{code: 'KOPA', common: 'Goldenrain Tree', genus: 'Koelreuteria', species: 'paniculata', family: 'Sapindaceae', color: '#e0b712'},
-		{code: 'CECA', common: 'Eastern Redbud', genus: 'Cercis', species: 'canadensis', family: 'Fabaceae', color: '#7b0c21'},
-		{code: 'LITU', common: 'Tulip Tree', genus: 'Liriodendron', species: 'tulipifera', family: 'Magnoliaceae', color: '#b2223d'},
-		{code: 'TIAM', common: 'American Linden', genus: 'Tilia', species: 'americana', family: 'Tiliaceae', color: '#81d4d9'},
-		{code: 'TITO', common: 'Silver Linden', genus: 'Tilia', species: 'tomentosa', family: 'Malvaceae', color: '#759395'},
-		{code: 'CR', common: 'Hawthorn', genus: 'Crataegus', species: 'monogyna', family: 'Rosaceae', color: '#458b89'},
-		{code: 'MA2', common: 'Crabapple', genus: 'Malus', species: '', family: 'Rosaceae', color: '#9f001a'},
-		{code: 'PR', common: 'Flowering Cherry', genus: 'Prunus', species: 'serrulata', family: 'Rosaceae', color: '#6b0037'},
-		{code: 'BE', common: 'Birch', genus: 'Betula', species: '', family: 'Betulaceae', color: '#096d67'},
-		{code: 'PRVISH', common: 'Schubert Cherry', genus: 'Prunus', species: 'virginiana Schubert', family: 'Rosaceae', color: '#653e55'},
-		{code: 'PRCE', common: 'Purpleleaf Plum', genus: 'Prunus', species: 'cerasifera', family: 'Rosaceae', color: '#6f174b'},
-		{code: 'AM', common: 'Serviceberry', genus: 'Amelanchier', species: 'arborea', family: 'Rosaceae', color: '#22148c'},
-		{code: 'CEOC', common: 'Hackberry', genus: 'Celtis', species: 'occidentalis', family: 'Cannabaceae', color: '#94ac7d'},
-		{code: 'CABE', common: 'European Hornbeam', genus: 'Carpinus', species: 'betulus', family: 'Betulaceae', color: '#4f8c14'},
-		{code: 'QUPH', common: 'Willow Oak', genus: 'Quercus', species: 'phellos', family: 'Fagaceae', color: '#96a5c2'},
-		{code: 'QUAC', common: 'Sawtooth Oak', genus: 'Quercus', species: 'acutissima', family: 'Fagaceae', color: '#fff0ff'},
-		{code: 'MA1', common: 'Magnolia', genus: 'Magnolia', species: '', family: 'Magnoliaceae', color: '#777f8d'},
-		{code: 'PO', common: 'Poplar', genus: 'Populus', species: '', family: 'Salicaceae', color: '#a0d9d3'},
-		{code: 'MO', common: 'Mulberry', genus: 'Morus', species: '', family: 'Moraceae', color: '#d9a0cf'},
-		{code: 'QURU', common: 'Northern Red Oak', genus: 'Quercus', species: 'rubra', family: 'Fagaceae', color: '#aa1639'},
-		{code: 'QUBI', common: 'Swamp White Oak', genus: 'Quercus', species: 'bicolor', family: 'Fagaceae', color: '#eab3c0'},
-		{code: 'QURO', common: 'English Oak', genus: 'Quercus', species: 'robur', family: 'Fagaceae', color: '#30526c'},
-		{code: 'QUAL', common: 'White Oak', genus: 'Quercus', species: 'alba', family: 'Fagaceae', color: '#fff'},
-		{code: 'MEGL', common: 'Dawn Redwood', genus: 'Metasequoia', species: 'glyptostroboides', family: 'Cupressaceae', color: '#f7a228'},
-		{code: 'PIST', common: 'Eastern White Pine', genus: 'Pinus', species: 'strobus', family: 'Pinaceae', color: '#c9ffab'},
-		{code: 'TADI', common: 'Baldcypress', genus: 'Taxodium', species: 'distichum', family: 'Cupressaceae', color: '#ff8034'}
-];
-		
-var treeCode = trees.forEach(function(each) { console.log(each.code); });
-var treeCommon = trees.forEach(function(each) { console.log(each.common); });
-
-var tip = d3.tip()
-		.attr('class', 'd3-tip')
-		.offset([-10, 0])
-		.html(function(d){if (d.SPECIES == treeCode){
-			return treeCommon}
-		})
-
+    var map;
+    function init(){
+      // leaflet map
+      map = new L.Map('map', { 
+        center: [40.6791989,-73.978277],
+        zoom: 12,
+				zoomControl: false,
+				minZoom: 11,
+				maxZoom: 16,
+				attributionControl: false
+      })
 						
-points.call(tip);
-		
-zoomed();
-
-function createMap(data) {
-	var scale = zoom.scale() / 10000000000 + 1
-	d3.select("#points").selectAll("circle").data(data) //plotted 	locations on map
-	.enter()
-	.append("circle")
-	.style("fill", function(d) {
-				if ( d.SPECIES == "ACPL" ) { return "#00567e"
-					} else if ( d.SPECIES == "ACRU" ) { return "#0084ff"
-					} else if ( d.SPECIES == "ACSA1" ) { return "#c3c3c3"
-					} else if ( d.SPECIES == "FRPE" ) { return "#007e59"
-					} else if ( d.SPECIES == "GLTR" ) { return "#dcab00"
-					} else if ( d.SPECIES == "TICO" ) { return "#006ddc"
-					} else if ( d.SPECIES == "PYCA" ) { return "#00dc53"
-					} else if ( d.SPECIES == "QUPA" ) { return "#739351"
-					} else if ( d.SPECIES == "PLAC" ) { return "#e53b00"
-					} else if ( d.SPECIES == "GIBI" ) { return "#deee27"
-					} else if ( d.SPECIES == "SYRE" ) { return "#b827ee"
-					} else if ( d.SPECIES == "COFL" ) { return "#ee27a6"
-					} else if ( d.SPECIES == "CEJA" ) { return "#385b9a"
-					} else if ( d.SPECIES == "AEHI" ) { return "#193569"
-					} else if ( d.SPECIES == "ACPLCK" ) { return "#ff0030"
-					} else if ( d.SPECIES == "ACSA2" ) { return "#61827a"
-					} else if ( d.SPECIES == "ACCA" ) { return "#39806f"
-					} else if ( d.SPECIES == "ACGI" ) { return "#04646d"
-					} else if ( d.SPECIES == "ACPA" ) { return "#01a3e7"
-					} else if ( d.SPECIES == "ACPS" ) { return "#3c9eac"
-					} else if ( d.SPECIES == "STJA2" ) { return "#0b6d7c"
-					} else if ( d.SPECIES == "ROPS" ) { return "#000"
-					} else if ( d.SPECIES == "ULAM" ) { return "#cd3a00"
-					} else if ( d.SPECIES == "ULPA" ) { return "#7c2b0b"
-					} else if ( d.SPECIES == "ZESE" ) { return "#00cd05"
-					} else if ( d.SPECIES == "LIST" ) { return "#cd6f00"
-					} else if ( d.SPECIES == "GYDI" ) { return "#61390a"
-					} else if ( d.SPECIES == "AIAL" ) { return "#fff4c8"
-					} else if ( d.SPECIES == "KOPA" ) { return "#e0b712"
-					} else if ( d.SPECIES == "CECA" ) { return "#7b0c21"
-					} else if ( d.SPECIES == "LITU" ) { return "#b2223d"
-					} else if ( d.SPECIES == "TIAM" ) { return "#81d4d9"
-					} else if ( d.SPECIES == "TITO" ) { return "#759395"
-					} else if ( d.SPECIES == "CR" ) { return "#458b89"
-					} else if ( d.SPECIES == "MA2" ) { return "#9f001a"
-					} else if ( d.SPECIES == "PR" ) { return "#6b0037"
-					} else if ( d.SPECIES == "BE" ) { return "#096d67"
-					} else if ( d.SPECIES == "PRVISH" ) { return "#653e55"
-					} else if ( d.SPECIES == "PRCE" ) { return "#6f174b"
-					} else if ( d.SPECIES == "AM" ) { return "#22148c"
-					} else if ( d.SPECIES == "CEOC" ) { return "#94ac7d"
-					} else if ( d.SPECIES == "CABE" ) { return "#4f8c14"
-					} else if ( d.SPECIES == "QUPH" ) { return "#96a5c2"
-					} else if ( d.SPECIES == "QUAC" ) { return "#"
-					} else if ( d.SPECIES == "MA1" ) { return "#777f8d"
-					} else if ( d.SPECIES == "PO" ) { return "#a0d9d3"
-					} else if ( d.SPECIES == "MO" ) { return "#d9a0cf"
-					} else if ( d.SPECIES == "QURU" ) { return "#aa1639"
-					} else if ( d.SPECIES == "QUBI" ) { return "#eab3c0"
-					} else if ( d.SPECIES == "QURO" ) { return "#30526c"
-					} else if ( d.SPECIES == "QUAL" ) { return "#fff"
-					} else if ( d.SPECIES == "MEGL" ) { return "#f7a228"
-					} else if ( d.SPECIES == "PIST" ) { return "#c9ffab"
-					} else if ( d.SPECIES == "TADI" ) { return "#ff8034"
-					} else { return "#999";
-			 	}})
-	.style("opacity", 0.7)
-	.attr("r", function(d) { 
-		if ( d.DIAMETER <= 10 ) { return .0000003*zoom.scale()
-			} else if ( d.DIAMETER > 10 && d.DIAMETER <= 20 ) { return .0000006*zoom.scale()
-			} else if ( d.DIAMETER > 20 && d.DIAMETER <= 45 ) { return .0000012*zoom.scale()
-			} else if ( d.DIAMETER > 45 ) { return .0000018*zoom.scale();
-		}})
-	.attr("id", function(d) { return d.SPECIES })
-	.attr("cx", function(d) {return projection([d.longitude,d.latitude])[0]})
-	.attr("cy", function(d) {return projection([d.longitude,d.latitude])[1]})
-	.on('mouseover', tip.show)
-	.on('mouseout', tip.hide);
-	zoomed();
-	
-// Species Filters (individual tree)
-	var filter1 = d3.select("#filter1")
-			// Add the filter
-			filter1.append("text")
-				.attr("id", "legend")
-				.on("click", function(){
-						// Determine if current line is visible
-						var active   = PLAC.active ? false : true ,
-						newOpacity = active ? 0 : 1;
-						// Hide or show the elements
-						d3.selectAll("#PLAC").style("opacity", newOpacity);
-						// Update whether or not the elements are active
-						PLAC.active = active;
-						})
-						.text("London Plane");
-
-			filter1.append("text")
-					.attr("id", "legend")
-					.on("click", function(){
-							// Determine if current line is visible
-							var active   = PLAC.active ? false : true ,
-							newOpacity = active ? 0 : 1;
-							// Hide or show the elements
-							d3.selectAll("#PYCA").style("opacity", newOpacity);
-							// Update whether or not the elements are active
-							PLAC.active = active;
-							})
-							.text("Callery Pear");
-							
-			filter1.append("text")
-					.attr("id", "legend")
-					.on("click", function(){
-							// Determine if current line is visible
-							var active   = PLAC.active ? false : true ,
-							newOpacity = active ? 0 : 1;
-							// Hide or show the elements
-							d3.selectAll("#GIBI").style("opacity", newOpacity);
-							// Update whether or not the elements are active
-							PLAC.active = active;
-							})
-							.text("Ginkgo");
+			var base = L.tileLayer('https://dnv9my2eseobd.cloudfront.net/v3/cartodb.map-4xtxp73f/{z}/{x}/{y}.png', {
+			  		 attribution: 'Mapbox <a href="http://mapbox.com/about/maps" target="_blank">Terms &amp; Feedback</a>'
+						 }).addTo(map);
 						
-// Genus Filters							
-			var filter2 = d3.select("#filter2")
-					// Add the filter
-					filter2.append("text")
-					.attr("id", "legend")
-					.on("click", function(){
-							// Determine if current line is visible
-							var active   = PLAC.active ? false : true ,
-							newOpacity = active ? 0 : 1;
-							// Hide or show the elements
-							d3.selectAll("#GIBI, #PYCA, #TICO, #PLAC").style("opacity", newOpacity);
-							// Update whether or not the elements are active
-							PLAC.active = active;
-							})
-							.text("Sample Group");
-
-
-// Family Filters
-				var filter3 = d3.select("#filter3")
-						// Add the filter
-						filter3.append("text")
-						.attr("id", "legend")
-						.on("click", function(){
-									// Determine if current line is visible
-									var active   = PLAC.active ? false : true ,
-									newOpacity = active ? 0 : 1;
-									// Hide or show the elements
-									d3.selectAll("#GIBI, #PYCA, #TICO, #PLAC").style("opacity", newOpacity);
-									// Update whether or not the elements are active
-									PLAC.active = active;
-									})
-									.text("Sample Fam");							
+			function removeBase(){
+						base.setOpacity(0);
+			}
+			document.getElementById('remover').onclick=function(){removeBase()};
+			
+			function addBase(){
+						base.setOpacity(1);
+			}
+			document.getElementById('adder').onclick=function(){addBase()};
+			
+			new L.Control.Zoom({ position: 'bottomright' }).addTo(map);
+			
+			new L.control.attribution({position: 'bottomleft'}).addTo(map);
+			
+			var layerUrl = 'http://jhubley.cartodb.com/api/v2/viz/be578070-d830-11e4-90db-0e853d047bba/viz.json';
 												
-}
+			var subLayerOptions = []
+						
+			var points = new cartodb.createLayer(map, layerUrl)
+			  .addTo(map)
+			  .on('done', function(layer) {
+					var num_sublayers = layer.getSubLayerCount();
+					
+				 for (var i = 0; i < num_sublayers; i++) {
+					  sublayer = layer.getSubLayer(i).set(subLayerOptions);
+					  sublayer.setSQL("SELECT bronxmansh.cartodb_id, bronxmansh.the_geom_webmercator, bronxmansh.diameter, bronxmansh.species, codes.common, codes.spcode FROM bronxmansh JOIN codes ON bronxmansh.species = codes.spcode UNION ALL SELECT queenssh.cartodb_id, queenssh.the_geom_webmercator, queenssh.diameter, queenssh.species, codes.common, codes.spcode FROM queenssh JOIN codes ON queenssh.species = codes.spcode UNION ALL SELECT bktreeswgs84.cartodb_id, bktreeswgs84.the_geom_webmercator, bktreeswgs84.diameter, bktreeswgs84.species, codes.common, codes.spcode FROM bktreeswgs84 JOIN codes ON bktreeswgs84.species = codes.spcode UNION ALL SELECT stissh.cartodb_id, stissh.the_geom_webmercator, stissh.diameter, stissh.species, codes.common, codes.spcode FROM stissh JOIN codes ON stissh.species = codes.spcode");
+									
+									//tooltip
+									if (map.getZoom() < 14) {
+					  			sublayer.setInteraction(true);
+					  			sublayer.setInteractivity(['common']);	
+					
+									var i = new cdb.geo.ui.Tooltip({  
+						                layer: layer,
+						                template: '<div class="cartodb-tooltip-content-wrapper"> <div class="cartodb-tooltip-content"><p>{{common}}</p></div></div>', 
+						                width: 200,
+						                position: 'top|left'
+						            });
+						            $('body').append(i.render().el);
+									
+									} else {
+									    sublayer.setInteraction(false);
+									}
+									console.log(map.getZoom());
+						
+					}
+													
+			  }).on('error', function() {
+			    //log the error
+			  });
+			
+			// filters					
+		  $('.button').click(function() {
+		    $('.button').removeClass('selected');
+		    $(this).addClass('selected');
+				var selText = $(this).text();
+				$(this).parents('#sddm').find('.dropdown-toggle').html(selText+'<span class="caret"></span>');
+		    var spec = $(this).attr('id');
 
-function zoomed() {
-  var tiles = tile
-      .scale(zoom.scale())
-      .translate(zoom.translate())
-      ();
-
-  projection
-      .scale(zoom.scale() / 2 / Math.PI)
-      .translate(zoom.translate());
-
-			d3.selectAll("#points").selectAll("circle")
-			.attr("cx", function(d) {return projection([d.longitude,d.latitude])[0]})
-			.attr("cy", function(d) {return projection([d.longitude,d.latitude])[1]})
-			.attr("r", function(d) { 
-				if ( d.DIAMETER <= 10 ) { return .0000003*zoom.scale()
-					} else if ( d.DIAMETER > 10 && d.DIAMETER <= 20 ) { return .0000006*zoom.scale()
-					} else if ( d.DIAMETER > 20 && d.DIAMETER <= 45 ) { return .0000012*zoom.scale()
-					} else if ( d.DIAMETER > 45 ) { return .0000018*zoom.scale();
-				}})
-
-  var image = layer
-      .style(prefix + "transform", matrix3d(tiles.scale, tiles.translate))
-    .selectAll(".tile")
-      .data(tiles, function(d) { return d; });
-
-  image.exit()
-      .remove();
-
-  image.enter().append("img")
-      .attr("class", "tile")
-      .attr("src", function(d) { return "http://" + ["a", "b", "c"][Math.random() * 3 | 0] + ".basemaps.cartocdn.com/dark_all/" + d[2] + "/" + d[0] + "/" + d[1] + ".png"; })
-      .style("left", function(d) { return (d[0] << 8) + "px"; })
-      .style("top", function(d) { return (d[1] << 8) + "px"; });
-}
+				   sublayer.setSQL("SELECT bronxmansh.cartodb_id, bronxmansh.the_geom_webmercator, bronxmansh.diameter, bronxmansh.species, codes.common, codes.spcode FROM bronxmansh JOIN codes ON bronxmansh.species = codes.spcode where species ='" + spec + "' UNION ALL SELECT queenssh.cartodb_id, queenssh.the_geom_webmercator, queenssh.diameter, queenssh.species, codes.common, codes.spcode FROM queenssh JOIN codes ON queenssh.species = codes.spcode where species ='" + spec + "' UNION ALL SELECT bktreeswgs84.cartodb_id, bktreeswgs84.the_geom_webmercator, bktreeswgs84.diameter, bktreeswgs84.species, codes.common, codes.spcode FROM bktreeswgs84 JOIN codes ON bktreeswgs84.species = codes.spcode where species ='" + spec + "' UNION ALL SELECT stissh.cartodb_id, stissh.the_geom_webmercator, stissh.diameter, stissh.species, codes.common, codes.spcode FROM stissh JOIN codes ON stissh.species = codes.spcode where species ='" + spec + "'");
+				sublayer.setInteraction(false);
+		
+		  });
 
 
-function interpolateZoom (translate, scale) {
-    var self = this;
-    return d3.transition().duration(350).tween("zoom", function () {
-        var iTranslate = d3.interpolate(zoom.translate(), translate),
-            iScale = d3.interpolate(zoom.scale(), scale);
-        return function (t) {
-            zoom
-                .scale(iScale(t))
-                .translate(iTranslate(t));
-            zoomed();
-        };
-    });
-}
-
-function zoomClick() {
-    var clicked = d3.event.target,
-        direction = 1,
-        factor = 0.2,
-        target_zoom = 1,
-        center = [width / 2, height / 2],
-        extent = zoom.scaleExtent(),
-        translate = zoom.translate(),
-        translate0 = [],
-        l = [],
-        view = {x: translate[0], y: translate[1], k: zoom.scale()};
-
-    d3.event.preventDefault();
-    direction = (this.id === 'zoom_in') ? 1 : -1;
-    target_zoom = zoom.scale() * (1 + factor * direction);
-
-    if (target_zoom < extent[0] || target_zoom > extent[1]) { return false; }
-
-    translate0 = [(center[0] - view.x) / view.k, (center[1] - view.y) / view.k];
-    view.k = target_zoom;
-    l = [translate0[0] * view.k + view.x, translate0[1] * view.k + view.y];
-
-    view.x += center[0] - l[0];
-    view.y += center[1] - l[1];
-
-    interpolateZoom([view.x, view.y], view.k);
-}
-
-d3.selectAll('button').on('click', zoomClick);
-
-$(function() {
-  $( "#accordion" ).accordion({
-    collapsible: true
-  });
-});
-
-function matrix3d(scale, translate) {
-  var k = scale / 256, r = scale % 1 ? Number : Math.round;
-  return "matrix3d(" + [k, 0, 0, 0, 0, k, 0, 0, 0, 0, k, 0, r(translate[0] * scale), r(translate[1] * scale), 0, 1 ] + ")";
-}
-
-function prefixMatch(p) {
-  var i = -1, n = p.length, s = document.body.style;
-  while (++i < n) if (p[i] + "Transform" in s) return "-" + p[i].toLowerCase() + "-";
-  return "";
-}
-
-function formatLocation(p, k) {
-  var format = d3.format("." + Math.floor(Math.log(k) / 2 - 2) + "f");
-  return (p[1] < 0 ? format(-p[1]) + "°S" : format(p[1]) + "°N") + " "
-       + (p[0] < 0 ? format(-p[0]) + "°W" : format(p[0]) + "°E");
-}
-
+		}
 </script>
-</body>
+</head>
+<body onload="init()">
+  <div id='map'></div>
+	<div id="footerbg"></div>
+  <div id='menu'>
+		<ul id="sddm">
+		    <li><a href="#all" id="all" class="button dropdown-toggle all first"
+		        onmouseover="mopen('m1')" 
+		        onmouseout="mclosetime()">Filter by Species</a>
+		        <div id="m1" 
+		            onmouseover="mcancelclosetime()" 
+		            onmouseout="mclosetime()">
+								<a href='/project/nyctrees' id='' class='button'><svg><rect width="10" height="10" fill="none" stroke="#fff" stroke-width=".5"></svg>All Trees</a>
+								<a href='#TIAM' id='TIAM' class='button TIAM'><svg><rect width="10" height="10" fill="#81d4d9"></svg>American Linden</a>
+								<a href='#ACGI' id='ACGI' class='button ACGI'><svg><rect width="10" height="10" fill="#04646d"></svg>Amur Maple</a>
+								<a href='#TADI' id='TADI' class='button TADI'><svg><rect width="10" height="10" fill="#ff8034"></svg>Baldcypress</a>
+								<a href='#BE' id='BE' class='button BE'><svg><rect width="10" height="10" fill="#d8ff00"></svg>Birch</a>
+								<a href='#ROPS' id='ROPS' class='button ROPS'><svg><rect width="10" height="10" fill="#00f0ff"></svg>Black Locust</a>
+								<a href='#PYCA' id='PYCA' class='button PYCA'><svg><rect width="10" height="10" fill="#00dc53"></svg>Callery Pear</a>
+								<a href='#ULPA' id='ULPA' class='button ULPA'><svg><rect width="10" height="10" fill="#0084ff"></svg>Chinese Elm</a>
+								<a href='#MA2' id='MA2' class='button MA2'><svg><rect width="10" height="10" fill="#5a009f"></svg>Crabapple</a>
+								<a href='#MEGL' id='MEGL' class='button MEGL'><svg><rect width="10" height="10" fill="#9f001a"></svg>Dawn Redwood</a>
+								<a href='#CECA' id='CECA' class='button CECA'><svg><rect width="10" height="10" fill="#d500cd"></svg>Eastern Redbud</a>
+								<a href='#PIST' id='PIST' class='button PIST'><svg><rect width="10" height="10" fill="#c9ffab"></svg>Eastern White Pine</a>
+								<a href='#QURO' id='QURO' class='button QURO'><svg><rect width="10" height="10" fill="#30526c"></svg>English Oak</a>
+								<a href='#CABE' id='CABE' class='button CABE'><svg><rect width="10" height="10" fill="#4f8c14"></svg>European Hornbeam</a>
+								<a href='#PR' id='PR' class='button PR'><svg><rect width="10" height="10" fill="#6b0037"></svg>Flowering Cherry</a>
+								<a href='#COFL' id='COFL' class='button COFL'><svg><rect width="10" height="10" fill="#ee27a6"></svg>Flowering Dogwood</a>
+								<a href='#GIBI' id='GIBI' class='button GIBI'><svg><rect width="10" height="10" fill="#deee27"></svg>Ginkgo</a>
+								<a href='#KOPA' id='KOPA' class='button KOPA'><svg><rect width="10" height="10" fill="#e0b712"></svg>Goldenrain Tree</a>
+								<a href='#FRPE' id='FRPE' class='button FRPE'><svg><rect width="10" height="10" fill="#007e59"></svg>Green Ash</a>
+								<a href='#CEOC' id='CEOC' class='button CEOC'><svg><rect width="10" height="10" fill="#94ac7d"></svg>Hackberry</a>
+								<a href='#CR' id='CR' class='button CR'><svg><rect width="10" height="10" fill="#458b89"></svg>Hawthorn</a>
+								<a href='#ACCA' id='ACCA' class='button ACCA'><svg><rect width="10" height="10" fill="#1be4c5"></svg>Hedge Maple</a>
+								<a href='#GLTR' id='GLTR' class='button GLTR'><svg><rect width="10" height="10" fill="#fea700"></svg>Honeylocust</a>
+								<a href='#AEHI' id='AEHI' class='button AEHI'><svg><rect width="10" height="10" fill="#193569"></svg>Horsechestnut</a>
+								<a href='#ACPA' id='ACPA' class='button ACPA'><svg><rect width="10" height="10" fill="#01a3e7"></svg>Japanese Maple</a>
+								<a href='#STJA2' id='STJA2' class='button STJA2'><svg><rect width="10" height="10" fill="#0b6d7c"></svg>Japanese Pagoda Tree</a>
+								<a href='#SYRE' id='SYRE' class='button SYRE'><svg><rect width="10" height="10" fill="#b827ee"></svg>Japanese Tree Lilac</a>
+								<a href='#ZESE' id='ZESE' class='button ZESE'><svg><rect width="10" height="10" fill="#00cd05"></svg>Japanese Zelkova</a>
+								<a href='#CEJA' id='CEJA' class='button CEJA'><svg><rect width="10" height="10" fill="#385b9a"></svg>Katsura Tree</a>
+								<a href='#GYDI' id='GYDI' class='button GYDI'><svg><rect width="10" height="10" fill="#61390a"></svg>Kentucky Coffeetree</a>
+								<a href='#TICO' id='TICO' class='button TICO'><svg><rect width="10" height="10" fill="#006ddc"></svg>Littleleaf Linden</a>
+								<a href='#PLAC' id='PLAC' class='button PLAC'><svg><rect width="10" height="10" fill="#e53b00"></svg>London Planetree</a>
+								<a href='#MA1' id='MA1' class='button MA1'><svg><rect width="10" height="10" fill="#777f8d"></svg>Magnolia</a>
+								<a href='#MO' id='MO' class='button MO'><svg><rect width="10" height="10" fill="#d9a0cf"></svg>Mulberry</a>
+								<a href='#QURU' id='QURU' class='button QURU'><svg><rect width="10" height="10" fill="#aa1639"></svg>Northern Red Oak</a>
+								<a href='#ACPL' id='ACPL' class='button ACPL'><svg><rect width="10" height="10" fill="#00567e"></svg>Norway Maple</a>
+								<a href='#QUPA' id='QUPA' class='button QUPA'><svg><rect width="10" height="10" fill="#739351"></svg>Pin Oak</a>
+								<a href='#PO' id='PO' class='button PO'><svg><rect width="10" height="10" fill="#a0d9d3"></svg>Poplar</a>
+								<a href='#PRCE' id='PRCE' class='button PRCE'><svg><rect width="10" height="10" fill="#6f174b"></svg>Purpleleaf Plum</a>
+								<a href='#ACRU' id='ACRU' class='button ACRU'><svg><rect width="10" height="10" fill="#cb9a9a"></svg>Red Maple</a>
+								<a href='#QUAC' id='QUAC' class='button QUAC'><svg><rect width="10" height="10" fill="#826431"></svg>Sawtooth Oak</a>
+								<a href='#PRVISH' id='PRVISH' class='button PRVISH'><svg><rect width="10" height="10" fill="#653e55"></svg>Schubert Cherry</a>
+								<a href='#AM' id='AM' class='button AM'><svg><rect width="10" height="10" fill="#22148c"></svg>Serviceberry</a>
+								<a href='#TITO' id='TITO' class='button TITO'><svg><rect width="10" height="10" fill="#759395"></svg>Silver Linden</a>
+								<a href='#ACSA1' id='ACSA1' class='button ACSA1'><svg><rect width="10" height="10" fill="#c3c3c3"></svg>Silver Maple</a>
+								<a href='#ACSA2' id='ACSA2' class='button ACSA2'><svg><rect width="10" height="10" fill="#61827a"></svg>Sugar Maple</a>
+								<a href='#QUBI' id='QUBI' class='button QUBI'><svg><rect width="10" height="10" fill="#eab3c0"></svg>Swamp White Oak</a>
+								<a href='#LIST' id='LIST' class='button LIST'><svg><rect width="10" height="10" fill="#cd6f00"></svg>Sweetgum</a>
+								<a href='#ACPS' id='ACPS' class='button ACPS'><svg><rect width="10" height="10" fill="#3c9eac"></svg>Sycamore Maple</a>
+								<a href='#AIAL' id='AIAL' class='button AIAL'><svg><rect width="10" height="10" fill="#fff4c8"></svg>Tree of Heaven</a>
+								<a href='#LITU' id='LITU' class='button LITU'><svg><rect width="10" height="10" fill="#b2223d"></svg>Tulip Tree</a>
+								<a href='#QUAL' id='QUAL' class='button QUAL'><svg><rect width="10" height="10" fill="#fff"></svg>White Oak</a>
+								<a href='#QUPH' id='QUPH' class='button QUPH'><svg><rect width="10" height="10" fill="#96a5c2"></svg>Willow Oak</a>
+		        </div>
+		    </li>
+		</ul>
+  </div>
+	<div id="base">Base Map</div>
+	<button id="adder">ON</button>
+	<button id="remover">OFF</button>
+				<div id="intro">
+					<h1><div class="nextline">NYC Street Trees</div><div class="nextline">by Species</div></h1>
+					<p>New York City's urban forest provides numerous environmental and social benefits, and street trees compose roughly one quarter of that canopy. This map shows the distribution and biodiversity of the city's street trees based on the last tree census.<br/><a href="/blog/nyctrees">Read more.</a></p>
+				</div>
+	<div id="credit">Created by <a href="http://www.jillhubley.com">Jill Hubley</a> |</div>
+	<div id="diameter">Dot size is roughly proportional to tree trunk diameter. </div>
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-61248014-1', 'auto');
+	  ga('send', 'pageview');
+
+	</script> 
+	</body>
 </html>
